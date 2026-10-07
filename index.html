@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nabiya Khan — B.Tech C&IT student portfolio at REVA University." />
+  <title>Nabiya Khan | B.Tech C&IT Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --surface-soft: #eef4ff;
+      --text: #172033;
+      --muted: #667085;
+      --primary: #3157d5;
+      --primary-dark: #2545b3;
+      --accent: #6c63ff;
+      --border: #e4e8f0;
+      --shadow: 0 12px 35px rgba(28, 43, 76, 0.08);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 80px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(108, 99, 255, 0.12), transparent 28%),
+        radial-gradient(circle at 15% 20%, rgba(49, 87, 213, 0.10), transparent 30%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 7vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-mark {
+      width: 92px;
+      height: 92px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: var(--surface-soft);
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    .profile-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .profile-meta {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .meta-row span:first-child {
+      color: var(--muted);
+    }
+
+    .meta-row span:last-child {
+      font-weight: 700;
+      text-align: right;
+    }
+
+    /* Sections */
+    section {
+      padding: 82px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    .section-heading .label {
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* About */
+    .about-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Activities */
+    .activities {
+      background: #f0f4fb;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .activity-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: 0.2s ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .activity-number {
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .activity-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .activity-card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+
+    .skill-group h3 {
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .tag {
+      background: var(--surface-soft);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* Goal */
+    .goal {
+      background: linear-gradient(135deg, #edf2ff, #f7f5ff);
+    }
+
+    .goal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+
+    .goal-box p {
+      color: var(--muted);
+      font-size: 1.03rem;
+      max-width: 900px;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-link {
+      padding: 9px 13px;
+      border-radius: 9px;
+      background: var(--surface-soft);
+      color: var(--primary-dark);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .social-link:hover {
+      background: #e1e9ff;
+    }
+
+    .placeholder-link {
+      cursor: default;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+      background: var(--surface);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-inner {
+        min-height: 62px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 0 60px;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+
+      .activity-grid,
+      .skills-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box,
+      .goal-box,
+      .profile-card {
+        padding: 24px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+
+    /* Portfolio polish */
+    .about-box { display:grid; gap:16px; }
+    .about-box br { display:none; }
+    .activity-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .activity-card { position:relative; min-height:190px; padding:26px; }
+    .activity-card::before { content:""; position:absolute; left:24px; right:24px; top:0; height:3px; border-radius:0 0 5px 5px; background:linear-gradient(90deg,var(--primary),var(--accent)); }
+    .activity-number { display:inline-flex; padding:5px 8px; border-radius:7px; background:var(--surface-soft); }
+    .skills-grid { gap:22px; }
+    .skill-group { box-shadow:0 8px 24px rgba(28,43,76,.045); }
+    .skill-group h3 { display:flex; align-items:center; gap:10px; }
+    .skill-group h3::before { content:""; width:7px; height:22px; border-radius:5px; background:var(--primary); }
+    .tag { border:1px solid #dbe3ff; transition:.2s ease; }
+    .tag:hover { transform:translateY(-2px); background:#e5ecff; }
+    .goal { position:relative; overflow:hidden; }
+    .goal::after { content:""; position:absolute; width:330px; height:330px; right:-130px; top:-170px; border:1px solid rgba(49,87,213,.14); border-radius:50%; box-shadow:0 0 0 34px rgba(49,87,213,.035),0 0 0 68px rgba(49,87,213,.02); pointer-events:none; }
+    .goal .container { position:relative; z-index:1; }
+    .goal-box { border-left:5px solid var(--primary); box-shadow:0 18px 45px rgba(49,87,213,.10); }
+    .contact-grid-profiles { grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+    .profile-contact { display:flex; flex-direction:column; min-height:245px; padding:25px; transition:.2s ease; }
+    .profile-contact:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .profile-contact p { flex:1; }
+    .contact-icon { width:44px; height:44px; display:grid; place-items:center; margin-bottom:17px; border-radius:13px; background:var(--surface-soft); color:var(--primary-dark); font-weight:900; }
+    .profile-contact .social-link { width:100%; text-align:center; }
+    @media (max-width:1000px) { .contact-grid-profiles { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:900px) { .activity-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:650px) { .activity-grid,.skills-grid,.contact-grid-profiles { grid-template-columns:1fr; } .profile-contact { min-height:0; } }
+
+  
+    /* Final visual refinement */
+    .about-box {
+      max-width: 920px;
+      padding: clamp(24px, 4vw, 38px);
+      border-left: 4px solid var(--primary);
+    }
+    .about-box p { max-width: 78ch; }
+
+    .activities .section-heading { margin-bottom: 32px; }
+    .activity-grid { align-items: stretch; }
+    .activity-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 205px;
+      overflow: hidden;
+    }
+    .activity-card h3 { letter-spacing: -0.015em; }
+    .activity-card p { margin-top: auto; padding-top: 8px; }
+    .activity-number { width: fit-content; }
+
+    .skills-grid { align-items: stretch; }
+    .skill-group {
+      position: relative;
+      min-height: 100%;
+      padding: 30px;
+      overflow: hidden;
+    }
+    .skill-group::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      right: -55px;
+      bottom: -65px;
+      border-radius: 50%;
+      background: rgba(49, 87, 213, 0.055);
+      pointer-events: none;
+    }
+    .skill-group h3 { position: relative; z-index: 1; }
+    .tags { position: relative; z-index: 1; gap: 10px; }
+    .tag { padding: 8px 13px; }
+
+    .goal-box {
+      position: relative;
+      padding: clamp(28px, 5vw, 44px);
+      border-left: 6px solid var(--primary);
+      background: rgba(255,255,255,.94);
+    }
+    .goal-box::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(49,87,213,.08);
+      border-radius: 15px;
+      pointer-events: none;
+    }
+    .goal-box p { position: relative; z-index: 1; }
+
+    .contact-grid-profiles { align-items: stretch; }
+    .profile-contact {
+      display: flex;
+      flex-direction: column;
+      min-height: 235px;
+      padding: 26px;
+    }
+    .contact-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 16px;
+      border-radius: 13px;
+      background: var(--surface-soft);
+      color: var(--primary-dark);
+      font-weight: 900;
+    }
+    .profile-contact p { flex: 1; }
+    .profile-contact .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-grid-profiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 650px) {
+      .activity-grid, .skills-grid, .contact-grid-profiles { grid-template-columns: 1fr; }
+      .activity-card { min-height: 0; }
+      .profile-contact { min-height: 0; }
+      .about-box { border-left-width: 3px; }
+      .goal-box { border-left-width: 4px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Nabiya<span>.</span></a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#goal">Goal</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">3rd Semester · B.Tech C&IT</div>
+          <h1>Hi, I'm <span>Nabiya Khan.</span></h1>
+          <p>
+            A B.Tech C&IT student at REVA University with an interest in
+            programming and technology. I am building my technical skills
+            through coursework, practical activities, coding practice, and
+            projects.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#activities">View Activities</a>
+            <a class="btn" href="https://github.com/nabiyakhan2202-alt" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="profile-card">
+          <div class="profile-mark">NK</div>
+          <h2>Nabiya Khan</h2>
+          <p>B.Tech C&IT Student</p>
+
+          <div class="profile-meta">
+            <div class="meta-row">
+              <span>Semester</span>
+              <span>3rd</span>
+            </div>
+            <div class="meta-row">
+              <span>Branch</span>
+              <span>B.Tech C&IT</span>
+            </div>
+            <div class="meta-row">
+              <span>University</span>
+              <span>REVA University</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="label">About Me</div>
+          <h2>Learning through practical work.</h2>
+          <p>A short introduction to my current learning journey.</p>
+        </div>
+
+        <div class="about-box">
+          <p>
+            I am Nabiya Khan, a third-semester B.Tech C&IT student at REVA
+            University interested in programming and technology. I am building
+            my skills in C programming, Data Structures, DBMS, SQL, Git, and
+            GitHub through coursework, practical activities, and coding
+            practice on LeetCode.
+          </p>
+          <p>
+            I enjoy learning through practical projects and improving my
+            problem-solving and technical skills. My goal is to become more
+            confident in programming and build a strong technical portfolio
+            for future internships and career opportunities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities -->
+    <section class="activities" id="activities">
+      <div class="container">
+        <div class="section-heading">
+          <div class="label">Activities & Projects</div>
+          <h2>My learning journey so far.</h2>
+          <p>
+            A collection of the activities and practical work completed during
+            my portfolio journey.
+          </p>
+        </div>
+
+        <div class="activity-grid">
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 00</div>
+            <h3>Development Environment Setup</h3>
+            <p>Set up the development environment and prepared the tools required for programming, Git, GitHub, and technical activities.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 01</div>
+            <h3>VS Code C/C++ Setup</h3>
+            <p>Configured Visual Studio Code for C and C++ programming and learned to create, compile, and run programs.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 02</div>
+            <h3>Extensions Tour</h3>
+            <p>Explored VS Code extensions for code execution, formatting, Git integration, and programming support.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 03</div>
+            <h3>GitHub Fundamentals</h3>
+            <p>Learned about repositories, commits, branches, and pushing project files to GitHub while building a coding portfolio.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 04</div>
+            <h3>Git</h3>
+            <p>Practiced initializing repositories, adding files, committing changes, and connecting projects to GitHub.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 05</div>
+            <h3>GitLens & Live Share</h3>
+            <p>Explored GitLens for change tracking and commit history, and Live Share for collaborative coding.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 06</div>
+            <h3>LeetCode Portfolio</h3>
+            <p>Created a LeetCode practice portfolio, solved programming problems, and organized solutions with documentation.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 07</div>
+            <h3>Simple Line Editor</h3>
+            <p>Developed a Simple Line Editor in C for a coding competition, implemented commands and functionalities, tested it, and maintained it on GitHub.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 08</div>
+            <h3>HackerRank</h3>
+            <p>Practiced programming and problem-solving challenges and organized solutions as part of my coding portfolio.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 09</div>
+            <h3>LinkedIn</h3>
+            <p>Created and developed a professional LinkedIn profile with educational background, skills, projects, and relevant information.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 10</div>
+            <h3>LinkedIn Networking</h3>
+            <p>Explored professional networking and learned about building useful connections with students, professionals, and the technology community.</p>
+          </article>
+
+          <article class="activity-card">
+            <div class="activity-number">ACTIVITY 11</div>
+            <h3>Instagram Coding</h3>
+            <p>Explored Instagram for sharing coding and learning activities and presenting technical interests in an engaging way.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="label">Skills</div>
+          <h2>What I'm building.</h2>
+          <p>Technical and supporting skills developed through coursework and portfolio activities.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Technical Skills</h3>
+            <div class="tags">
+              <span class="tag">C Programming</span>
+              <span class="tag">Basic C++</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">DBMS</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Problem-Solving</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Platforms & Professional Skills</h3>
+            <div class="tags">
+              <span class="tag">LeetCode</span>
+              <span class="tag">HackerRank</span>
+              <span class="tag">Professional Networking</span>
+              <span class="tag">Collaboration</span>
+              <span class="tag">Documentation</span>
+              <span class="tag">Presenting Work Online</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career / Learning Goal -->
+    <section class="goal" id="goal">
+      <div class="container">
+        <div class="section-heading">
+          <div class="label">Career / Learning Goal</div>
+          <h2>Building towards future opportunities.</h2>
+        </div>
+
+        <div class="goal-box">
+          <p>
+            My goal is to strengthen my programming and problem-solving skills
+            and build a strong technical portfolio during my B.Tech. I want to
+            gain practical experience through projects, coding practice, and
+            internships so that I can be better prepared for future career
+            opportunities in the technology field.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="label">Contact</div>
+          <h2>Find my work online.</h2>
+          <p>
+            Explore my coding and professional learning journey through the
+            platforms used in my portfolio activities.
+          </p>
+        </div>
+
+        <div class="contact-grid contact-grid-profiles">
+          <article class="contact-card profile-contact">
+            <div class="contact-icon">GH</div>
+            <h3>GitHub</h3>
+            <p>My coding projects, repositories, and portfolio work.</p>
+            <a class="social-link" href="https://github.com/nabiyakhan2202-alt" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+          </article>
+
+          <article class="contact-card profile-contact">
+            <div class="contact-icon">in</div>
+            <h3>LinkedIn</h3>
+            <p>My professional profile and networking presence.</p>
+            <a class="social-link" href="https://www.linkedin.com/in/nabiya-khan-828862384/" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
+          </article>
+
+          <article class="contact-card profile-contact">
+            <div class="contact-icon">LC</div>
+            <h3>LeetCode</h3>
+            <p>My coding practice profile.</p>
+            <a class="social-link" href="https://leetcode.com/u/nabiyakhan/" target="_blank" rel="noopener noreferrer">LeetCode Profile ↗</a>
+          </article>
+
+          <article class="contact-card profile-contact">
+            <div class="contact-icon">HR</div>
+            <h3>HackerRank</h3>
+            <p>My programming and problem-solving profile.</p>
+            <a class="social-link" href="https://www.hackerrank.com/khannabiya737" target="_blank" rel="noopener noreferrer">HackerRank Profile ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Nabiya Khan · B.Tech C&IT · REVA University
+    </div>
+  </footer>
+</body>
+</html>
